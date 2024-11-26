@@ -11,12 +11,12 @@ namespace Pokemon_Like.MVVM.ViewModel
 {
     internal class LoginVM : BaseVM
     {
+        public ICommand LoginCommand { get; set; }
+
         public LoginVM()
         {
             LoginCommand = new RelayCommand(Login);
         }
-
-        public ICommand LoginCommand;
 
         public void Login()
         {

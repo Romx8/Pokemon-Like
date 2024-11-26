@@ -4,9 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pokemon_Like"
+        xmlns:vm="clr-namespace:Pokemon_Like.MVVM.ViewModel"
+        xmlns:view="clr-namespace:Pokemon_Like.MVVM.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+        <!-- d:DataContext="{d:DesignInstance Type=vm:MainWindowVM}" -->
+    
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:MainViewVM}">
+            <view:MainView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:LoginVM}">
+            <view:LoginView/>
+        </DataTemplate>
+    </Window.Resources>
+    
     <Grid>
-
+        <ContentControl Content="{Binding CurrentVM}"/>
     </Grid>
 </Window>

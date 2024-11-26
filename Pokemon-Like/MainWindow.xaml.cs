@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Pokemon_Like.MVVM.ViewModel;
 
 namespace Pokemon_Like
 {
@@ -16,9 +17,12 @@ namespace Pokemon_Like
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainWindowVM MainWindowVM { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            MainWindowVM = new MainWindowVM();
+            DataContext = MainWindowVM;
         }
     }
 }

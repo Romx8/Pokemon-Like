@@ -9,6 +9,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Button Content="Go to Login" Command="{Binding RequestLoginView}"/>
+        <Button Command="{Binding RequestLoginView}" Content="Go to Login" />
     </Grid>
 </UserControl>
