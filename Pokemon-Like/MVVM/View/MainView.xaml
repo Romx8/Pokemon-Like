@@ -9,6 +9,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Button Command="{Binding RequestLoginView}" Content="Go to Login" />
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <Button Command="{Binding RequestLoginView}" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50" Background="AliceBlue" Grid.Row="1"/>
+        <Button Command="{Binding RequestSignUpView}" Content="Sign Up" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50" Background="Aqua" Grid.Row="2" />
     </Grid>
 </UserControl>

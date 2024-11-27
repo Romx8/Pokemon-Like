@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 
@@ -32,15 +33,23 @@ namespace Pokemon_Like.MVVM.ViewModel
         }
 
         public ICommand LoginCommand { get; set; }
+        public ICommand RequestMainView { get; set; }
 
         public LoginVM()
         {
             LoginCommand = new RelayCommand(Login);
+            RequestMainView = new RelayCommand(HandleRequestMainView);
         }
 
         public void Login()
         {
             MessageBox.Show($"Username: {Username}\nPassword: {Password}");
+        }
+
+
+        public void HandleRequestMainView()
+        {
+            MainWindowVM.OnRequestVMChange?.Invoke(new MainViewVM());
         }
     }
 }

@@ -9,13 +9,7 @@ namespace Pokemon_Like.MVVM.View
         {
             InitializeComponent();
         }
-
-        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is ViewModel.LoginVM loginVM)
-            {
-                loginVM.Password = ((PasswordBox)sender).Password;
-            }
-        }
     }
+
+
 }

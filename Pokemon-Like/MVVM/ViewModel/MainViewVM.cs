@@ -12,16 +12,21 @@ namespace Pokemon_Like.MVVM.ViewModel
     public class MainViewVM : BaseVM
     {
         public ICommand RequestLoginView { get; set; }
+        public ICommand RequestSignUpView { get; set; }
 
         public MainViewVM()
         {
             RequestLoginView = new RelayCommand(HandleRequestLoginView);
+            RequestSignUpView = new RelayCommand(HandleRequestSignUpView);
         }
 
         public void HandleRequestLoginView()
         {
-            MessageBox.Show("Change VM");
             MainWindowVM.OnRequestVMChange?.Invoke(new LoginVM());
+        }
+        public void HandleRequestSignUpView()
+        {
+            MainWindowVM.OnRequestVMChange?.Invoke(new SignUpVM());
         }
     }
 }
