@@ -17,8 +17,8 @@ namespace Pokemon_Like.MVVM.ViewModel
             get => _username;
             set
             {
-                _username = value;
-                OnPropertyChanged();
+                SetProperty(ref _username, value);
+                OnPropertyChanged(nameof(Username));
             }
         }
 
@@ -27,29 +27,21 @@ namespace Pokemon_Like.MVVM.ViewModel
             get => _password;
             set
             {
-                _password = value;
-                OnPropertyChanged();
+                SetProperty(ref _password, value);
+                OnPropertyChanged(nameof(Password));
             }
         }
 
         public ICommand LoginCommand { get; set; }
-        public ICommand RequestMainView { get; set; }
 
-        public LoginVM()
+        public LoginVM() : base()
         {
             LoginCommand = new RelayCommand(Login);
-            RequestMainView = new RelayCommand(HandleRequestMainView);
         }
 
         public void Login()
         {
             MessageBox.Show($"Username: {Username}\nPassword: {Password}");
-        }
-
-
-        public void HandleRequestMainView()
-        {
-            MainWindowVM.OnRequestVMChange?.Invoke(new MainViewVM());
         }
     }
 }

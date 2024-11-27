@@ -4,20 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pokemon_Like.MVVM.View" 
-             xmlns:vm="clr-namespace:Pokemon_Like.MVVM.ViewModel" 
+             xmlns:vm="clr-namespace:Pokemon_Like.MVVM.ViewModel"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DataContext="{d:DesignInstance Type=vm:LoginVM}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="Username" HorizontalAlignment="Left" Margin="300,100,300,100"/>
-        <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" 
-                 HorizontalAlignment="Left" Margin="300,120,300,120"/>
-
-        <TextBlock Text="Password" HorizontalAlignment="Left" Margin="300,140,300,140"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="300,160,300,160"
-                     PasswordChanged="PasswordBox_PasswordChanged"/>
-
-        <Button Content="Login" Command="{Binding LoginCommand}" Background="#FF228AE5" Margin="300,190,300,190"/>
-        <Button Content="Back to Home" Command="{Binding RequestMainView}" Background="#FF228AE5" Margin="300,280,300,140"/>
+        <StackPanel VerticalAlignment="Center" Width="400">
+            <TextBlock Text="Username" HorizontalAlignment="Left"/>
+            <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Background="Aqua" Width="100"/>
+            <TextBlock Text="Password" HorizontalAlignment="Left" Width="100" Background="Aqua"/>
+            <PasswordBox HorizontalAlignment="Left"/>
+            <Button Content="Login" Command="{Binding LoginCommand}"/>
+            <Button Content="Back to Home" Command="{Binding RequestMainView}" Style="{StaticResource MaterialDesignRaisedSecondaryButton}"/>
+            <Button Width="100" Content="DARK" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton" />
+        </StackPanel>
+        
     </Grid>
 </UserControl>

@@ -8,7 +8,7 @@ namespace Pokemon_Like.MVVM.ViewModel
 {
     public class MainWindowVM : BaseVM
     {
-        static public Action<BaseVM> OnRequestVMChange;
+        static public Action<BaseVM>? OnRequestVMChange;
 
         #region Variables
 

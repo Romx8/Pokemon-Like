@@ -5,9 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pokemon_Like.MVVM.View"
              xmlns:vm="clr-namespace:Pokemon_Like.MVVM.ViewModel"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              d:DataContext="{d:DesignInstance Type=vm:MainViewVM}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
+    <Control.Resources>
+        <sys:Double x:Key="IconSize">20</sys:Double>
+    </Control.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -15,8 +21,10 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-
-        <Button Command="{Binding RequestLoginView}" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50" Background="AliceBlue" Grid.Row="1"/>
-        <Button Command="{Binding RequestSignUpView}" Content="Sign Up" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50" Background="Aqua" Grid.Row="2" />
+        <Button Grid.Row="0" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="MaterialDesignFloatingActionMiniLightButton">
+            <materialDesign:PackIcon Width="{StaticResource IconSize}" Height="{StaticResource IconSize}" Kind="Alarm"/>
+        </Button>
+        <Button Command="{Binding RequestLoginView}" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50" Grid.Row="1"/>
+        <Button Command="{Binding RequestSignUpView}" Content="Sign Up" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50" Grid.Row="2" />
     </Grid>
 </UserControl>
