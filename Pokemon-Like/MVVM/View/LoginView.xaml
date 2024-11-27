@@ -9,6 +9,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Button Content="login" Command="{Binding LoginCommand}"></Button>
+        <TextBlock Text="Username" HorizontalAlignment="Left" Margin="300,100,300,100"/>
+        <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" 
+                 HorizontalAlignment="Left" Margin="300,120,300,120"/>
+
+        <TextBlock Text="Password" HorizontalAlignment="Left" Margin="300,140,300,140"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="300,160,300,160"
+                     PasswordChanged="PasswordBox_PasswordChanged"/>
+
+        <Button Content="Login" Command="{Binding LoginCommand}" Background="#FF228AE5" 
+                Margin="300,190,300,190"/>
     </Grid>
 </UserControl>

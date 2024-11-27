@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
@@ -11,6 +8,29 @@ namespace Pokemon_Like.MVVM.ViewModel
 {
     internal class LoginVM : BaseVM
     {
+        private string _username;
+        private string _password;
+
+        public string Username
+        {
+            get => _username;
+            set
+            {
+                _username = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Password
+        {
+            get => _password;
+            set
+            {
+                _password = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ICommand LoginCommand { get; set; }
 
         public LoginVM()
@@ -20,7 +40,7 @@ namespace Pokemon_Like.MVVM.ViewModel
 
         public void Login()
         {
-            MessageBox.Show("Login");
+            MessageBox.Show($"Username: {Username}\nPassword: {Password}");
         }
     }
 }
