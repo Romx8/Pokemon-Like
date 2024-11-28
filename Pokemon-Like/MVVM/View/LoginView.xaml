@@ -11,15 +11,17 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel VerticalAlignment="Center" Width="400">
+            <!-- Username -->
             <TextBlock Text="Username" HorizontalAlignment="Left"/>
-            <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Background="Aqua" Width="100"/>
-            <TextBlock Text="Password" HorizontalAlignment="Left" Width="100" Background="Aqua"/>
-            <PasswordBox HorizontalAlignment="Left"/>
-            <Button Content="Login" Command="{Binding LoginCommand}"/>
-            <Button Content="Back to Home" Command="{Binding RequestMainView}" Style="{StaticResource MaterialDesignRaisedSecondaryButton}"/>
-            <Button Width="100" Content="DARK" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                    Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton" />
+            <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="100" Background="AliceBlue" Margin="0,0,0,20"/>
+            <!-- Password -->
+            <TextBlock Text="Password" HorizontalAlignment="Left" Width="100"/>
+            <PasswordBox PasswordChanged="PasswordBox_PasswordChanged"  HorizontalAlignment="Left" Width="100" Background="AliceBlue" Margin="0,0,0,20"/>
+            
+            <!-- Login Button -->
+            <Button Content="Login" Command="{Binding LoginCommand}" Style="{StaticResource MaterialDesignPaperLightButton}" Margin="0,0,0,20"/>
+            <!-- Back Home -->
+            <Button Content="Back to Home" Command="{Binding RequestMainView}" Margin="0,0,0,20"/>
         </StackPanel>
-        
     </Grid>
 </UserControl>

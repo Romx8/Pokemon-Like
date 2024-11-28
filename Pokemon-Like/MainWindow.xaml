@@ -21,6 +21,10 @@
         <DataTemplate DataType="{x:Type vm:SignUpVM}">
             <view:SignUpView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SettingsVM}">
+            <view:SettingsView/>
+        </DataTemplate>
+        
     </Window.Resources>
     
     <Grid>
