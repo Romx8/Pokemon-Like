@@ -9,24 +9,48 @@ namespace Pokemon_Like.MVVM.ViewModel
     {
         private readonly ExerciceMonsterContext _context;
 
-        public ObservableCollection<Monster> Monsters { get; set; }
+        public ObservableCollection<Monster> Monsters { get; private set; }
+
+        public MonsterVM()
+        {
+            _context = new ExerciceMonsterContext();
+            var monstersInDb = _context.Monsters.ToList();
+            Monsters = new ObservableCollection<Monster>(monstersInDb);
+        }
+
 
         public MonsterVM(ExerciceMonsterContext context)
         {
+
             _context = context;
 
-            // Charger les monstres depuis la base de données
             var monstersInDb = _context.Monsters.ToList();
+
             if (monstersInDb.Any())
             {
+                MessageBox.Show("Monstres trouvés dans la base de données !");
                 Monsters = new ObservableCollection<Monster>(monstersInDb);
+                var firstMonster = monstersInDb.First();
+                MessageBox.Show($"Premier monstre trouvé : {firstMonster.Name}, Santé : {firstMonster.Health}");
             }
             else
             {
-                MessageBox.Show("No Pokémon found in the database!");
+                MessageBox.Show("Aucun monstre trouvé dans la base de données !");
             }
         }
 
-        public MonsterVM() { }
+        private Monster? _selectedMonster;
+        public Monster? SelectedMonster
+        {
+            get => _selectedMonster;
+            set
+            {
+                if (SetProperty(ref _selectedMonster, value))
+                {
+                    OnPropertyChanged(nameof(SelectedMonster.Spells));
+                }
+            }
+        }
+
     }
 }

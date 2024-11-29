@@ -43,6 +43,19 @@ namespace Pokemon_Like.Model
             _context.Monsters.AddRange(monsters);
             _context.SaveChanges();
             }
+
+            if (!_context.Spells.Any())
+                {
+                   var spells = new List<Spell>
+                   {
+                       new Spell { Name = "Vine Whip", Damage = 45, Description = "A whipping attack with vines." },
+                       new Spell { Name = "Flamethrower", Damage = 60, Description = "Shoots fire at the enemy." },
+                       new Spell { Name = "Water Gun", Damage = 40, Description = "Shoots water at the enemy." }
+                   };
+                _context.Spells.AddRange(spells);
+                _context.SaveChanges();
+                MessageBox.Show("The spells are add to the database");
+            }
         }
 }
 }

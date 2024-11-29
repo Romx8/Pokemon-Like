@@ -13,11 +13,32 @@
     </UserControl.DataContext>
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="600">
-            
+
             <TextBlock Text="List of Monsters" FontSize="24" HorizontalAlignment="Center" Margin="0, 0, 0, 20"/>
 
             <DataGrid ItemsSource="{Binding Monsters}" AutoGenerateColumns="True" Width="500" Height="300" Margin="0,0,0,20"/>
-            
+            <DataGrid ItemsSource="{Binding Monsters}" AutoGenerateColumns="False" Width="500" Height="300" Margin="0,0,0,20">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="Health" Binding="{Binding Health}" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- Liste des monstres -->
+           <!--
+            <DataGrid ItemsSource="{Binding Monsters}" SelectedItem="{Binding SelectedMonster}">
+            AutoGenerateColumns="False" Width="500" Height="300" Margin="0,0,0,20">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                    <DataGridTextColumn Header="Health" Binding="{Binding Health}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            --> 
+
+            <!-- Liste des spells du monstre sélectionné -->
+            <TextBlock Text="Spells of Selected Monster" FontSize="18" HorizontalAlignment="Center" Margin="0, 20, 0, 10"/>
+            <ListBox ItemsSource="{Binding SelectedMonster.Spells}" DisplayMemberPath="Name" Width="500" Height="150"/>
+
             <Button Content="Back to Home" Command="{Binding RequestMainView}" Margin="0, 20, 0, 0"/>
         </StackPanel>
     </Grid>
