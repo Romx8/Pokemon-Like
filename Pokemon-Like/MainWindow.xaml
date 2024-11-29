@@ -24,6 +24,9 @@
         <DataTemplate DataType="{x:Type vm:SettingsVM}">
             <view:SettingsView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:MonsterVM}">
+            <view:MonsterView/>
+        </DataTemplate>
         
     </Window.Resources>
     

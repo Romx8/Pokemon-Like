@@ -21,7 +21,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding RequestSettingsView}" Grid.Row="0" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="MaterialDesignFloatingActionMiniLightButton">
+        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding RequestSettingsView}" Grid.Row="0" ToolTip="MaterialDesignFloatingActionMiniLightButton">
             <materialDesign:PackIcon Width="{StaticResource IconSize}" Height="{StaticResource IconSize}" Kind="Alarm"/>
         </Button>
         <Button Command="{Binding RequestLoginView}" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="50" Grid.Row="1"/>

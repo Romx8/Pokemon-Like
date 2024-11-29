@@ -8,12 +8,15 @@ using CommunityToolkit.Mvvm.Input;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Pokemon_Like.Model;
+using Pokemon_Like.MVVM.View;
 
 namespace Pokemon_Like.MVVM.ViewModel
 {
     internal class LoginVM : BaseVM
     {
         private readonly LogicBDD _LogicBDD;
+
+        public Action RedirectToHome { get; set; }
 
         public ICommand LoginCommand { get; set; }
 
@@ -26,12 +29,17 @@ namespace Pokemon_Like.MVVM.ViewModel
 
         public void Login()
         {
-            _LogicBDD.Login(Username, Password);
-            MessageBox.Show($"Username: {Username}\nPassword: {Password}");
+            if (_LogicBDD.Login(Username, Password))
+            {
+                var context = new ExerciceMonsterContext();
+                _monsterVM = new MonsterVM(context);
+                MainWindowVM.OnRequestVMChange?.Invoke(new MonsterVM());
+            }
         }
 
         private string _username;
         private string _password;
+        private MonsterVM _monsterVM;
 
         public string Username
         {

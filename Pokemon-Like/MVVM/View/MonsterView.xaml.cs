@@ -12,23 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Pokemon_Like.Model;
 using Pokemon_Like.MVVM.ViewModel;
 
 namespace Pokemon_Like.MVVM.View
 {
     /// <summary>
-    /// Logique d'interaction pour SignUpView.xaml
+    /// Logique d'interaction pour MonsterView.xaml
     /// </summary>
-    public partial class SignUpView : UserControl
+    public partial class MonsterView : UserControl
     {
-        public SignUpView()
+        public MonsterView()
         {
             InitializeComponent();
-        }
-        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            if (this.DataContext != null)
-            { ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password; }
         }
     }
 }
