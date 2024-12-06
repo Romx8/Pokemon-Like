@@ -11,6 +11,11 @@
 
   <ItemGroup>
     <None Remove="background.jpg" />
+    <None Remove="combat.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="combat.jpg" />
   </ItemGroup>
 
   <ItemGroup>

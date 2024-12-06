@@ -12,7 +12,7 @@
         x:Name="BackgroundImage"
         AlignmentX="Center"
         AlignmentY="Center"
-        ImageSource="combat.jpg"
+        ImageSource="/combat.jpg"
         Stretch="UniformToFill" />
         </Grid.Background>
         <ContentControl Content="{Binding CurrentVM}"/>
