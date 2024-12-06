@@ -32,7 +32,6 @@ namespace Pokemon_Like.MVVM.ViewModel
             if (_LogicBDD.Login(Username, Password))
             {
                 var context = new ExerciceMonsterContext();
-                _monsterVM = new MonsterVM(context);
                 MainWindowVM.OnRequestVMChange?.Invoke(new MonsterVM());
             }
         }

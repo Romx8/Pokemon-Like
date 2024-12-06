@@ -54,7 +54,9 @@ namespace Pokemon_Like.Model
                    };
                 _context.Spells.AddRange(spells);
                 _context.SaveChanges();
-                MessageBox.Show("The spells are add to the database");
+            } else
+            {
+                MessageBox.Show("Toutes les données ont été ajouté!");
             }
         }
 }

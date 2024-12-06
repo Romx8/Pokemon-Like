@@ -27,10 +27,20 @@
         <DataTemplate DataType="{x:Type vm:MonsterVM}">
             <view:MonsterView/>
         </DataTemplate>
-        
+        <DataTemplate DataType="{x:Type vm:CombatVM}">
+            <view:CombatView/>
+        </DataTemplate>
     </Window.Resources>
     
     <Grid>
+        <Grid.Background>
+            <ImageBrush
+                x:Name="BackgroundImage"
+                AlignmentX="Center"
+                AlignmentY="Center"
+                ImageSource="background.jpg"
+                Stretch="UniformToFill" />
+        </Grid.Background>
         <ContentControl Content="{Binding CurrentVM}"/>
     </Grid>
 </Window>
