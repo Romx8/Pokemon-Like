@@ -82,4 +82,4 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 }
 ```
 
-Remplacez "LAPTOP-HJ07RK13\SQLEXPRESS" par "SqlDBLink".
+Remplacez "LAPTOP-HJ07RK13\SQLEXPRESS" par "SqlDBLink", comme configuré dans votre environnement de base de données.
