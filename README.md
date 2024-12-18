@@ -70,3 +70,16 @@ Exemple :
    ```bash
    git clone https://github.com/ton-repo/pokemon-like.git
    cd pokemon-like
+
+
+2.  **Modification nécessaire dans le fichier ExerciceMonsterContext.cs** :
+Dans ce fichier, il est nécessaire de changer la ligne de code suivante pour configurer correctement la chaîne de connexion à la base de données :
+```csharp
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+    #warning Pour protéger les informations sensibles dans votre chaîne de connexion, vous devez la déplacer hors du code source. Vous pouvez éviter de l'inclure dans le code en utilisant la syntaxe Name= pour la lire depuis la configuration.
+    => optionsBuilder.UseSqlServer("Name=SqlDBLink");
+}
+```
+
+Remplacez "LAPTOP-HJ07RK13\SQLEXPRESS" par "SqlDBLink".
